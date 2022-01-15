@@ -1,0 +1,23 @@
+global:
+ resolve_timeout: 1m
+
+route:
+ receiver: 'email-notifications'
+
+receivers:
+- name: 'email-notifications'
+  email_configs:
+  - to: tdashpute@gamil.com
+    from: test@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: tdashpute@gmail.com
+    auth_identity: tdashpute@gmail.com
+    auth_password: *******
+    send_resolved: true
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
