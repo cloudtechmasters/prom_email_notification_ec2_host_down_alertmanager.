@@ -1,0 +1,1 @@
+# prom_email_notification_ec2_host_down_alertmanager.
